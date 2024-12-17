@@ -72,6 +72,9 @@ public class ExposurePointFeature extends CameraFeature<Point> {
     if (!checkIsSupported()) {
       return;
     }
+    if (exposureRectangle == null) {
+      return;
+    }
     requestBuilder.set(
         CaptureRequest.CONTROL_AE_REGIONS,
         exposureRectangle == null ? null : new MeteringRectangle[] {exposureRectangle});
